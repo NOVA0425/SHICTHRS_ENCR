@@ -10,6 +10,7 @@ from colorama import init
 init()
 from .utils.hash.SHRENCR_get_hash_code import get_hash_code
 from .utils.hash.SHRENCR_get_file_hash_code import get_file_hash_code
+from .utils.hash.SHRENCR_get_hash_code_mask import get_hash_code_mask
 from .utils.base64.SHRENCR_en_base64_code import en_base64_code
 from .utils.base64.SHRENCR_de_base64_code import de_base64_code
 from .utils.identity.SHRENCR_check_identity_number import check_identity_number
@@ -43,6 +44,12 @@ def SHRENCR_get_file_hash_code(path : str) -> str:
             raise SHRENCRException(f"SHRENCRException [ERROR.3000.1.1] file not found. | {path}")
     except Exception as e:
         raise SHRENCRException(f"SHRENCRException [ERROR.3000.1.2] unable to get file hash code. | {str(e)}")
+
+def SHRENCR_get_hash_code_mask(org_code : str) -> str:
+    try:
+        return get_hash_code_mask(org_code)
+    except Exception as e:
+        raise SHRENCRException(f"SHRENCRException [ERROR.3000.2] unable to get hash code mask. | {str(e)}")
 
 def SHRENCR_en_base64_code(org_code : str) -> str:
     try:
