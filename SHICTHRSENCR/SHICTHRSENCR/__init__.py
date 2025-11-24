@@ -20,6 +20,10 @@ print('\033[1mWelcome to use SHRENCR - ENCR System\033[0m\n|  \033[1;34mGithub :
 print('|  \033[1mAlgorithms = rule ; Questioning = approval\033[0m')
 print('|  \033[1mCopyright : © 2025-2026 SHICTHRS, Std. All rights reserved.\033[0m\n')
 
+__all__ = ['SHRENCR_get_hash_code' , 'SHRENCR_get_file_hash_code' , 'SHRENCR_get_hash_code_mask' ,
+            'SHRENCR_en_base64_code' , 'SHRENCR_de_base64_code' , 'SHRENCR_check_identity_number' ,
+            'SHRENCR_check_chinese_text']
+
 class SHRENCRException(BaseException):
     def __init__(self , message: str) -> None:
         self.message = message
