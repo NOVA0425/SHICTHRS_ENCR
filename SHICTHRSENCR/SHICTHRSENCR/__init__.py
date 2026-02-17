@@ -99,4 +99,4 @@ def SHRENCR_check_SHICTHRS_standard_password(password : str) -> bool:
     try:
         return check_password(password)
     except Exception as e:
-        raise SHRENCRException(f"SHRENCR [ERROR.3006] unable to check e-mail. | {str(e)}")
+        raise SHRENCRException(f"SHRENCR [ERROR.3007] unable to check SHICTHRS standard password. | {str(e)}")
