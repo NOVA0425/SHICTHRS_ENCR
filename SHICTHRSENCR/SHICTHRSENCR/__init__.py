@@ -22,6 +22,7 @@ from .utils.identity.SHRENCR_check_email import check_email
 from .utils.identity.SHRENCR_identity_number_mask import get_identity_number_mask
 from .utils.identity.SHRENCR_check_chinese_name import check_is_chinese_name
 from .utils.identity.SHRENCR_check_nickname import check_nickname
+from .utils.identity.SHRENCR_check_wx_identity_number import check_wx_identity_number
 
 from .utils.password.SHRENCR_check_password import check_password
 from .utils.password.SHRENCR_get_password_strength import get_password_strength
@@ -34,7 +35,7 @@ __all__ = ['SHRENCR_get_hash_code' , 'SHRENCR_get_file_hash_code' , 'SHRENCR_get
             'SHRENCR_en_base64_code' , 'SHRENCR_de_base64_code' , 'SHRENCR_check_identity_number' ,
             'SHRENCR_check_chinese_text' , 'SHRENCR_check_chinese_phone_number' , 'SHRENCR_check_email' ,
             'SHRENCR_check_SHICTHRS_standard_password' , 'SHRENCR_get_identity_number_mask' , 'SHRENCR_check_is_chinese_name' ,
-            'SHRENCR_get_password_strength']
+            'SHRENCR_get_password_strength' , 'SHRENCR_check_nickname' , 'SHRENCR_check_wx_identity_number']
 
 class SHRENCRException(Exception):
     def __init__(self , message: str) -> None:
@@ -132,3 +133,9 @@ def SHRENCR_check_nickname(nickname : str) -> str:
         return check_nickname(nickname)
     except Exception as e:
         raise SHRENCRException(f"SHRENCR [ERROR.3011] unable to check nickname. | {str(e)}")
+    
+def SHRENCR_check_wx_identity_number(identity_number : str) -> str:
+    try:
+        return check_wx_identity_number(identity_number)
+    except Exception as e:
+        raise SHRENCRException(f"SHRENCR [ERROR.3012] unable to check wx identity number. | {str(e)}")
