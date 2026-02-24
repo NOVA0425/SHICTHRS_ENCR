@@ -11,14 +11,18 @@ init()
 from .utils.hash.SHRENCR_get_hash_code import get_hash_code
 from .utils.hash.SHRENCR_get_file_hash_code import get_file_hash_code
 from .utils.hash.SHRENCR_get_hash_code_mask import get_hash_code_mask
+
 from .utils.base64.SHRENCR_en_base64_code import en_base64_code
 from .utils.base64.SHRENCR_de_base64_code import de_base64_code
+
 from .utils.identity.SHRENCR_check_identity_number import check_identity_number
 from .utils.identity.SHRENCR_check_chinese_text import check_chinese_text
 from .utils.identity.SHRENCR_check_chinese_phone_number import check_chinese_phone_number
 from .utils.identity.SHRENCR_check_email import check_email
 from .utils.identity.SHRENCR_identity_number_mask import get_identity_number_mask
 from .utils.identity.SHRENCR_check_chinese_name import check_is_chinese_name
+from .utils.identity.SHRENCR_check_nickname import check_nickname
+
 from .utils.password.SHRENCR_check_password import check_password
 from .utils.password.SHRENCR_get_password_strength import get_password_strength
 
@@ -122,3 +126,9 @@ def SHRENCR_get_password_strength(password : str) -> str:
         return get_password_strength(password)
     except Exception as e:
         raise SHRENCRException(f"SHRENCR [ERROR.3010] unable to get password strength. | {str(e)}")
+    
+def SHRENCR_check_nickname(nickname : str) -> str:
+    try:
+        return check_nickname(nickname)
+    except Exception as e:
+        raise SHRENCRException(f"SHRENCR [ERROR.3011] unable to check nickname. | {str(e)}")
